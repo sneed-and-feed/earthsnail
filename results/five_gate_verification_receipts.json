@@ -185,9 +185,9 @@
     "gate_5_cross_isa_wasm32_lockstep_and_performance": {
       "status": "PASS",
       "wasm_lockstep_receipt_file": "studio/wasm_lockstep_receipts.json",
-      "wasm_binary_size_bytes": 916732,
-      "wasm_sha256": "cb455f06abca4580972565e401b880201e736e96b2d217fd332a1f9322dad111",
-      "simd128_v128_opcode_bytes": 4249,
+      "wasm_binary_size_bytes": 916697,
+      "wasm_sha256": "254fd71259f987ea18a48ebac80cc212b953660009095027c346235e197e36bb",
+      "simd128_v128_opcode_bytes": 4236,
       "wasm_imports": 0,
       "wasm_exports": 36,
       "portable_studio_html": {

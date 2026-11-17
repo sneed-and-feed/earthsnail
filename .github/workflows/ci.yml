@@ -13,6 +13,10 @@ env:
   PYTHONUTF8: '1'
   PYTHONIOENCODING: 'utf-8'
 
+defaults:
+  run:
+    shell: bash
+
 jobs:
   rust-and-bindings:
     name: Build, Clippy, Release Tests, WASM32 & Python FFI (${{ matrix.os }})
@@ -100,8 +104,18 @@ jobs:
         run: node studio/audit_studio_html.mjs
 
   miri-soundness:
-    name: Gate 2 — Cargo Miri Memory & Stacked/Tree Borrows Audit
+    name: Gate 2 — Miri Soundness (${{ matrix.crate }})
     runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        crate:
+          - earthsnail-core
+          - earthsnail-io
+          - earthsnail-dsp
+          - earthsnail-taup
+          - earthsnail-sac
+          - earthsnail-wasm
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v4
@@ -111,8 +125,10 @@ jobs:
         with:
           components: miri, rust-src
 
-      - name: Run Miri Across All 6 Workspace Crates (0 UB, 0 Leaks)
+      - name: Run Miri Soundness Audit (0 UB, 0 Leaks)
         run: |
           cargo +nightly miri setup
-          cargo +nightly miri test --workspace --lib
-          cargo +nightly miri test -p earthsnail-core --lib --no-default-features
+          cargo +nightly miri test -p ${{ matrix.crate }} --lib
+          if [ "${{ matrix.crate }}" = "earthsnail-core" ]; then
+            cargo +nightly miri test -p earthsnail-core --lib --no-default-features
+          fi

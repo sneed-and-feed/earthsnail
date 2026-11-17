@@ -274,9 +274,9 @@ impl FirStage {
                 let l = self.coefficients.len() - 1;
                 let center_phase = -omega * (l as f64) * dt;
                 let mut real_amp = self.coefficients[l];
-                for k in 0..l {
+                for (k, &coeff) in self.coefficients[..l].iter().enumerate() {
                     let dist = (l - k) as f64;
-                    real_amp += 2.0 * self.coefficients[k] * math::cos(omega * dist * dt);
+                    real_amp += 2.0 * coeff * math::cos(omega * dist * dt);
                 }
                 Complex64::from_polar(real_amp, center_phase)
             }
@@ -285,9 +285,9 @@ impl FirStage {
                 let center = ((2 * l - 1) as f64) * 0.5;
                 let center_phase = -omega * center * dt;
                 let mut real_amp = 0.0;
-                for k in 0..l {
+                for (k, &coeff) in self.coefficients[..l].iter().enumerate() {
                     let dist = center - (k as f64);
-                    real_amp += 2.0 * self.coefficients[k] * math::cos(omega * dist * dt);
+                    real_amp += 2.0 * coeff * math::cos(omega * dist * dt);
                 }
                 Complex64::from_polar(real_amp, center_phase)
             }

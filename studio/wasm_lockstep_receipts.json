@@ -3,12 +3,12 @@
   "overall_status": "PASS",
   "node_version": "v24.13.0",
   "host_platform": "win32-x64",
-  "wasm_compile_ms": 2.6746,
+  "wasm_compile_ms": 3.4872,
   "wasm_binary": {
-    "wasm_size_bytes": 916732,
-    "sha256": "cb455f06abca4580972565e401b880201e736e96b2d217fd332a1f9322dad111",
+    "wasm_size_bytes": 916697,
+    "sha256": "254fd71259f987ea18a48ebac80cc212b953660009095027c346235e197e36bb",
     "simd128_enabled": true,
-    "v128_opcode_bytes": 4249,
+    "v128_opcode_bytes": 4236,
     "import_count": 0,
     "imports": [],
     "export_count": 36,
@@ -58,7 +58,7 @@
       "frames_bytes": 1152,
       "frames_sha256_match": true,
       "max_int32_ulp_diff": 0,
-      "wasm_elapsed_ms": 7.4223
+      "wasm_elapsed_ms": 5.3749
     },
     "wgs84_geodesics": {
       "status": "PASS",
@@ -66,13 +66,13 @@
       "count": 30,
       "max_abs_diff": 0,
       "max_rel_diff": 0,
-      "wasm_elapsed_ms": 1.2441
+      "wasm_elapsed_ms": 0.867
     },
     "butterworth_zerophase": {
       "status": "PASS",
       "obspy_2pass_max_abs_diff": 0,
       "sosfiltfilt_max_abs_diff": 0,
-      "wasm_elapsed_ms": 2.4576
+      "wasm_elapsed_ms": 2.3196
     },
     "fft_psd_envelope_noise": {
       "status": "PASS",
@@ -80,7 +80,7 @@
       "envelope_max_abs_diff": 0,
       "nlnm_max_abs_diff": 0,
       "nhnm_max_abs_diff": 0,
-      "wasm_elapsed_ms": 1.3619
+      "wasm_elapsed_ms": 1.8922
     },
     "morse_and_baer_pickers": {
       "status": "PASS",
@@ -90,7 +90,7 @@
       "morse_cf_max_abs_diff": 0,
       "baer_clean_pick": 641,
       "baer_cf_max_abs_diff": 0,
-      "wasm_elapsed_ms": 1.669
+      "wasm_elapsed_ms": 3.1631
     },
     "taup_iasp91_ak135_prem": {
       "status": "PASS",
@@ -104,7 +104,7 @@
       "max_travel_time_diff_s": 0,
       "max_ray_param_diff_s_per_deg": 0,
       "max_ray_path_coord_diff": 0,
-      "wasm_elapsed_ms": 260.1739
+      "wasm_elapsed_ms": 284.6763
     }
   }
 }

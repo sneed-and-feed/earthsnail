@@ -455,10 +455,7 @@ impl<S: Read + Write> SeedLinkClient<S> {
     pub fn request_info(&mut self, level: &str) -> Result<String> {
         self.send_raw_cmd(&format!("INFO {}", level.trim()))?;
         let mut combined = String::new();
-        loop {
-            let Some(pkt) = self.read_next_packet()? else {
-                break;
-            };
+        while let Some(pkt) = self.read_next_packet()? {
             match pkt {
                 SeedLinkPacket::V3Info { has_more, payload } => {
                     let recs = read_mseed_records(&payload)?;

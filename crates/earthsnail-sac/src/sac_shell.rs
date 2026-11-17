@@ -2636,8 +2636,7 @@ impl SacSession {
                 let mut mx = f64::NEG_INFINITY;
                 let mut mn_i = start;
                 let mut mx_i = start;
-                for k in start..(start + wlen) {
-                    let v = tr.data[k];
+                for (k, &v) in tr.data.iter().enumerate().skip(start).take(wlen) {
                     if v < mn {
                         mn = v;
                         mn_i = k;

@@ -2421,9 +2421,9 @@ impl TauModel {
             new_s_branches.push(sb);
         }
 
-        for p_or_s in 0..2 {
+        for (p_or_s, branch_vec) in self.tau_branches.iter().enumerate() {
             let is_p = p_or_s == 0;
-            let orig_tb = &self.tau_branches[p_or_s][branch_to_split];
+            let orig_tb = &branch_vec[branch_to_split];
             let mut top_half = TauBranch::new(orig_tb.top_depth, depth, is_p);
             top_half.create_branch(&out_s_mod, orig_tb.max_ray_param, &out_ray_params)?;
             let bot_half =
