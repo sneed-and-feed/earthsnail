@@ -1,0 +1,18 @@
+[package]
+name = "earthsnail-taup"
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+license.workspace = true
+description = "Pure-Rust global spherical ray tracing (iasp91, ak135, prem, Bulland-Chapman tau(p), phase parser, time/pierce/path/curve, locator)."
+repository.workspace = true
+
+[features]
+default = ["std"]
+std = ["earthsnail-core/std"]
+
+[dependencies]
+earthsnail-core = { path = "../earthsnail-core", default-features = false }
+
+[dev-dependencies]
+proptest = { workspace = true }

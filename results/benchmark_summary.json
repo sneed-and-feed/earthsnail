@@ -1,0 +1,509 @@
+{
+  "schema_version": "1.0",
+  "generated_epoch_s": 1794871855,
+  "methodology": "Isolated per-workload OS child process (--release, opt-level=3, thin-LTO); Win32 K32GetProcessMemoryInfo PeakWorkingSetSize RSS vs ObsPy/SciPy/TauPy isolated subprocess baseline.",
+  "environment": {
+    "os": "Windows-10-10.0.19045-SP0",
+    "cpu": "Intel64 Family 6 Model 158 Stepping 9, GenuineIntel",
+    "target_arch": "x86_64",
+    "python_version": "3.12.13",
+    "obspy_version": "1.5.1",
+    "scipy_version": "1.18.1",
+    "numpy_version": "2.5.5"
+  },
+  "comparisons": [
+    {
+      "workload": "cold_startup",
+      "obspy_baseline_workload": "cold_import",
+      "units_per_iter": 1,
+      "unit_name": "init",
+      "earthsnail_rust": {
+        "iterations": 1,
+        "warmup_iterations": 0,
+        "median_ms": 40.063700,
+        "min_ms": 40.063700,
+        "mean_ms": 40.063700,
+        "p95_ms": 40.063700,
+        "throughput_per_sec": 24.960,
+        "rss_before_bytes": 3158016,
+        "rss_after_bytes": 3854336,
+        "peak_rss_bytes": 3858432,
+        "rss_delta_bytes": 700416
+      },
+      "obspy_baseline": {
+        "median_ms": 7486.344300,
+        "min_ms": 7486.344300,
+        "p95_ms": 7486.344300,
+        "throughput_per_sec": 0.000,
+        "peak_rss_bytes": 205099008,
+        "tracemalloc_peak_bytes": 79005098
+      },
+      "speedup_vs_obspy": 186.8610,
+      "peak_rss_reduction_factor": 53.1561
+    },
+    {
+      "workload": "filter_bandpass_causal_100k",
+      "obspy_baseline_workload": "filter_bandpass_causal_100k",
+      "units_per_iter": 100000,
+      "unit_name": "samples",
+      "earthsnail_rust": {
+        "iterations": 50,
+        "warmup_iterations": 5,
+        "median_ms": 0.822000,
+        "min_ms": 0.744300,
+        "mean_ms": 0.933200,
+        "p95_ms": 1.374500,
+        "throughput_per_sec": 121654501.217,
+        "rss_before_bytes": 4911104,
+        "rss_after_bytes": 4915200,
+        "peak_rss_bytes": 4919296,
+        "rss_delta_bytes": 8192
+      },
+      "obspy_baseline": {
+        "median_ms": 4.969700,
+        "min_ms": 4.218800,
+        "p95_ms": 6.890100,
+        "throughput_per_sec": 20121938.923,
+        "peak_rss_bytes": 139317248,
+        "tracemalloc_peak_bytes": 851967
+      },
+      "speedup_vs_obspy": 6.0459,
+      "peak_rss_reduction_factor": 28.3206
+    },
+    {
+      "workload": "filter_bandpass_zerophase_100k",
+      "obspy_baseline_workload": "filter_bandpass_zerophase_100k",
+      "units_per_iter": 100000,
+      "unit_name": "samples",
+      "earthsnail_rust": {
+        "iterations": 50,
+        "warmup_iterations": 5,
+        "median_ms": 1.665450,
+        "min_ms": 1.540000,
+        "mean_ms": 1.909028,
+        "p95_ms": 2.660500,
+        "throughput_per_sec": 60043831.997,
+        "rss_before_bytes": 4911104,
+        "rss_after_bytes": 4915200,
+        "peak_rss_bytes": 4919296,
+        "rss_delta_bytes": 8192
+      },
+      "obspy_baseline": {
+        "median_ms": 5.801900,
+        "min_ms": 5.098800,
+        "p95_ms": 7.435300,
+        "throughput_per_sec": 17235733.125,
+        "peak_rss_bytes": 138326016,
+        "tracemalloc_peak_bytes": 1653911
+      },
+      "speedup_vs_obspy": 3.4837,
+      "peak_rss_reduction_factor": 28.1191
+    },
+    {
+      "workload": "filter_bandpass_causal_1m",
+      "obspy_baseline_workload": "filter_bandpass_causal_1m",
+      "units_per_iter": 1000000,
+      "unit_name": "samples",
+      "earthsnail_rust": {
+        "iterations": 25,
+        "warmup_iterations": 3,
+        "median_ms": 10.828100,
+        "min_ms": 9.607800,
+        "mean_ms": 10.930740,
+        "p95_ms": 13.392300,
+        "throughput_per_sec": 92352305.575,
+        "rss_before_bytes": 11317248,
+        "rss_after_bytes": 11321344,
+        "peak_rss_bytes": 19329024,
+        "rss_delta_bytes": 8011776
+      },
+      "obspy_baseline": {
+        "median_ms": 14.225800,
+        "min_ms": 13.506700,
+        "p95_ms": 17.471700,
+        "throughput_per_sec": 70294816.471,
+        "peak_rss_bytes": 167604224,
+        "tracemalloc_peak_bytes": 8040372
+      },
+      "speedup_vs_obspy": 1.3138,
+      "peak_rss_reduction_factor": 8.6711
+    },
+    {
+      "workload": "filter_bandpass_zerophase_1m",
+      "obspy_baseline_workload": "filter_bandpass_zerophase_1m",
+      "units_per_iter": 1000000,
+      "unit_name": "samples",
+      "earthsnail_rust": {
+        "iterations": 25,
+        "warmup_iterations": 3,
+        "median_ms": 20.915400,
+        "min_ms": 19.275500,
+        "mean_ms": 21.510528,
+        "p95_ms": 26.059700,
+        "throughput_per_sec": 47811660.308,
+        "rss_before_bytes": 11329536,
+        "rss_after_bytes": 11333632,
+        "peak_rss_bytes": 19337216,
+        "rss_delta_bytes": 8007680
+      },
+      "obspy_baseline": {
+        "median_ms": 25.177300,
+        "min_ms": 23.554300,
+        "p95_ms": 26.997500,
+        "throughput_per_sec": 39718317.728,
+        "peak_rss_bytes": 167215104,
+        "tracemalloc_peak_bytes": 16044245
+      },
+      "speedup_vs_obspy": 1.2038,
+      "peak_rss_reduction_factor": 8.6473
+    },
+    {
+      "workload": "steim2_decode_100k",
+      "obspy_baseline_workload": "steim2_decode_100k",
+      "units_per_iter": 100000,
+      "unit_name": "samples",
+      "earthsnail_rust": {
+        "iterations": 50,
+        "warmup_iterations": 5,
+        "median_ms": 1.907100,
+        "min_ms": 1.654700,
+        "mean_ms": 1.980112,
+        "p95_ms": 2.735900,
+        "throughput_per_sec": 52435635.258,
+        "rss_before_bytes": 3710976,
+        "rss_after_bytes": 4730880,
+        "peak_rss_bytes": 5677056,
+        "rss_delta_bytes": 1966080
+      },
+      "obspy_baseline": {
+        "median_ms": 5.101600,
+        "min_ms": 4.537000,
+        "p95_ms": 6.307300,
+        "throughput_per_sec": 19601693.727,
+        "peak_rss_bytes": 138276864,
+        "tracemalloc_peak_bytes": 698647
+      },
+      "speedup_vs_obspy": 2.6751,
+      "peak_rss_reduction_factor": 24.3571
+    },
+    {
+      "workload": "steim2_decode_1m",
+      "obspy_baseline_workload": "steim2_decode_1m",
+      "units_per_iter": 1000000,
+      "unit_name": "samples",
+      "earthsnail_rust": {
+        "iterations": 25,
+        "warmup_iterations": 3,
+        "median_ms": 21.291200,
+        "min_ms": 19.614300,
+        "mean_ms": 21.689792,
+        "p95_ms": 24.585600,
+        "throughput_per_sec": 46967761.329,
+        "rss_before_bytes": 5525504,
+        "rss_after_bytes": 5812224,
+        "peak_rss_bytes": 22384640,
+        "rss_delta_bytes": 16859136
+      },
+      "obspy_baseline": {
+        "median_ms": 22.126950,
+        "min_ms": 21.213900,
+        "p95_ms": 22.964500,
+        "throughput_per_sec": 45193756.927,
+        "peak_rss_bytes": 156459008,
+        "tracemalloc_peak_bytes": 6336151
+      },
+      "speedup_vs_obspy": 1.0393,
+      "peak_rss_reduction_factor": 6.9896
+    },
+    {
+      "workload": "fft_rfft_irfft_100k",
+      "obspy_baseline_workload": "fft_rfft_irfft_100k",
+      "units_per_iter": 100000,
+      "unit_name": "samples",
+      "earthsnail_rust": {
+        "iterations": 25,
+        "warmup_iterations": 3,
+        "median_ms": 74.316900,
+        "min_ms": 68.349700,
+        "mean_ms": 74.675296,
+        "p95_ms": 82.404100,
+        "throughput_per_sec": 1345588.958,
+        "rss_before_bytes": 5685248,
+        "rss_after_bytes": 5689344,
+        "peak_rss_bytes": 15687680,
+        "rss_delta_bytes": 10002432
+      },
+      "obspy_baseline": {
+        "median_ms": 3.389200,
+        "min_ms": 2.901400,
+        "p95_ms": 3.944200,
+        "throughput_per_sec": 29505487.838,
+        "peak_rss_bytes": 140537856,
+        "tracemalloc_peak_bytes": 1604848
+      },
+      "speedup_vs_obspy": 0.0456,
+      "peak_rss_reduction_factor": 8.9585
+    },
+    {
+      "workload": "fft_rfft_irfft_1m",
+      "obspy_baseline_workload": "fft_rfft_irfft_1m",
+      "units_per_iter": 1000000,
+      "unit_name": "samples",
+      "earthsnail_rust": {
+        "iterations": 10,
+        "warmup_iterations": 2,
+        "median_ms": 793.694600,
+        "min_ms": 765.367400,
+        "mean_ms": 805.701770,
+        "p95_ms": 863.205000,
+        "throughput_per_sec": 1259930.457,
+        "rss_before_bytes": 11272192,
+        "rss_after_bytes": 11276288,
+        "peak_rss_bytes": 110403584,
+        "rss_delta_bytes": 99131392
+      },
+      "obspy_baseline": {
+        "median_ms": 45.473900,
+        "min_ms": 42.271500,
+        "p95_ms": 53.496500,
+        "throughput_per_sec": 21990636.367,
+        "peak_rss_bytes": 175640576,
+        "tracemalloc_peak_bytes": 16003344
+      },
+      "speedup_vs_obspy": 0.0573,
+      "peak_rss_reduction_factor": 1.5909
+    },
+    {
+      "workload": "fft_rfft_irfft_pow2_131k",
+      "obspy_baseline_workload": "fft_rfft_irfft_100k",
+      "units_per_iter": 131072,
+      "unit_name": "samples",
+      "earthsnail_rust": {
+        "iterations": 25,
+        "warmup_iterations": 3,
+        "median_ms": 7.057800,
+        "min_ms": 6.174100,
+        "mean_ms": 7.615824,
+        "p95_ms": 9.626900,
+        "throughput_per_sec": 18571226.161,
+        "rss_before_bytes": 4317184,
+        "rss_after_bytes": 4317184,
+        "peak_rss_bytes": 7479296,
+        "rss_delta_bytes": 3162112
+      },
+      "obspy_baseline": {
+        "median_ms": 3.389200,
+        "min_ms": 2.901400,
+        "p95_ms": 3.944200,
+        "throughput_per_sec": 29505487.838,
+        "peak_rss_bytes": 140537856,
+        "tracemalloc_peak_bytes": 1604848
+      },
+      "speedup_vs_obspy": 0.4802,
+      "peak_rss_reduction_factor": 18.7903
+    },
+    {
+      "workload": "fft_rfft_irfft_pow2_1m",
+      "obspy_baseline_workload": "fft_rfft_irfft_1m",
+      "units_per_iter": 1048576,
+      "unit_name": "samples",
+      "earthsnail_rust": {
+        "iterations": 15,
+        "warmup_iterations": 2,
+        "median_ms": 75.023700,
+        "min_ms": 67.946000,
+        "mean_ms": 75.270627,
+        "p95_ms": 84.206400,
+        "throughput_per_sec": 13976596.729,
+        "rss_before_bytes": 11653120,
+        "rss_after_bytes": 11657216,
+        "peak_rss_bytes": 36835328,
+        "rss_delta_bytes": 25182208
+      },
+      "obspy_baseline": {
+        "median_ms": 45.473900,
+        "min_ms": 42.271500,
+        "p95_ms": 53.496500,
+        "throughput_per_sec": 21990636.367,
+        "peak_rss_bytes": 175640576,
+        "tracemalloc_peak_bytes": 16003344
+      },
+      "speedup_vs_obspy": 0.6061,
+      "peak_rss_reduction_factor": 4.7683
+    },
+    {
+      "workload": "remove_response_100k",
+      "obspy_baseline_workload": "remove_response_100k",
+      "units_per_iter": 100000,
+      "unit_name": "samples",
+      "earthsnail_rust": {
+        "iterations": 15,
+        "warmup_iterations": 2,
+        "median_ms": 191.125700,
+        "min_ms": 181.622800,
+        "mean_ms": 191.140193,
+        "p95_ms": 201.109100,
+        "throughput_per_sec": 523215.873,
+        "rss_before_bytes": 5902336,
+        "rss_after_bytes": 5890048,
+        "peak_rss_bytes": 29085696,
+        "rss_delta_bytes": 23183360
+      },
+      "obspy_baseline": {
+        "median_ms": 102.226600,
+        "min_ms": 99.503200,
+        "p95_ms": 107.865200,
+        "throughput_per_sec": 978218.976,
+        "peak_rss_bytes": 150581248,
+        "tracemalloc_peak_bytes": 10452560
+      },
+      "speedup_vs_obspy": 0.5349,
+      "peak_rss_reduction_factor": 5.1772
+    },
+    {
+      "workload": "remove_response_1m",
+      "obspy_baseline_workload": "remove_response_1m",
+      "units_per_iter": 1000000,
+      "unit_name": "samples",
+      "earthsnail_rust": {
+        "iterations": 5,
+        "warmup_iterations": 1,
+        "median_ms": 1824.695100,
+        "min_ms": 1787.003800,
+        "mean_ms": 1815.550040,
+        "p95_ms": 1831.299100,
+        "throughput_per_sec": 548036.765,
+        "rss_before_bytes": 11476992,
+        "rss_after_bytes": 11476992,
+        "peak_rss_bytes": 209715200,
+        "rss_delta_bytes": 198238208
+      },
+      "obspy_baseline": {
+        "median_ms": 1025.998600,
+        "min_ms": 997.602200,
+        "p95_ms": 1069.628400,
+        "throughput_per_sec": 974660.199,
+        "peak_rss_bytes": 250167296,
+        "tracemalloc_peak_bytes": 104211144
+      },
+      "speedup_vs_obspy": 0.5623,
+      "peak_rss_reduction_factor": 1.1929
+    },
+    {
+      "workload": "remove_response_pow2_100k",
+      "obspy_baseline_workload": "remove_response_100k",
+      "units_per_iter": 100000,
+      "unit_name": "samples",
+      "earthsnail_rust": {
+        "iterations": 15,
+        "warmup_iterations": 2,
+        "median_ms": 43.813700,
+        "min_ms": 40.624100,
+        "mean_ms": 44.424793,
+        "p95_ms": 48.435100,
+        "throughput_per_sec": 2282391.124,
+        "rss_before_bytes": 5885952,
+        "rss_after_bytes": 5885952,
+        "peak_rss_bytes": 12193792,
+        "rss_delta_bytes": 6307840
+      },
+      "obspy_baseline": {
+        "median_ms": 102.226600,
+        "min_ms": 99.503200,
+        "p95_ms": 107.865200,
+        "throughput_per_sec": 978218.976,
+        "peak_rss_bytes": 150581248,
+        "tracemalloc_peak_bytes": 10452560
+      },
+      "speedup_vs_obspy": 2.3332,
+      "peak_rss_reduction_factor": 12.3490
+    },
+    {
+      "workload": "remove_response_pow2_1m",
+      "obspy_baseline_workload": "remove_response_1m",
+      "units_per_iter": 1000000,
+      "unit_name": "samples",
+      "earthsnail_rust": {
+        "iterations": 5,
+        "warmup_iterations": 1,
+        "median_ms": 390.554900,
+        "min_ms": 381.384100,
+        "mean_ms": 400.639520,
+        "p95_ms": 442.697000,
+        "throughput_per_sec": 2560459.490,
+        "rss_before_bytes": 11472896,
+        "rss_after_bytes": 11476992,
+        "peak_rss_bytes": 61825024,
+        "rss_delta_bytes": 50352128
+      },
+      "obspy_baseline": {
+        "median_ms": 1025.998600,
+        "min_ms": 997.602200,
+        "p95_ms": 1069.628400,
+        "throughput_per_sec": 974660.199,
+        "peak_rss_bytes": 250167296,
+        "tracemalloc_peak_bytes": 104211144
+      },
+      "speedup_vs_obspy": 2.6270,
+      "peak_rss_reduction_factor": 4.0464
+    },
+    {
+      "workload": "taup_1000_queries_iasp91",
+      "obspy_baseline_workload": "taup_1000_queries_iasp91",
+      "units_per_iter": 1000,
+      "unit_name": "queries",
+      "earthsnail_rust": {
+        "iterations": 15,
+        "warmup_iterations": 2,
+        "median_ms": 12.228300,
+        "min_ms": 11.087300,
+        "mean_ms": 13.780340,
+        "p95_ms": 17.922300,
+        "throughput_per_sec": 81777.516,
+        "rss_before_bytes": 5955584,
+        "rss_after_bytes": 5955584,
+        "peak_rss_bytes": 5959680,
+        "rss_delta_bytes": 4096
+      },
+      "obspy_baseline": {
+        "median_ms": 168976.129500,
+        "min_ms": 158540.842000,
+        "p95_ms": 172792.880700,
+        "throughput_per_sec": 5.918,
+        "peak_rss_bytes": 184160256,
+        "tracemalloc_peak_bytes": 36624701
+      },
+      "speedup_vs_obspy": 13818.4481,
+      "peak_rss_reduction_factor": 30.9010
+    },
+    {
+      "workload": "taup_1000_queries_uncached_iasp91",
+      "obspy_baseline_workload": "taup_1000_queries_iasp91",
+      "units_per_iter": 1000,
+      "unit_name": "queries",
+      "earthsnail_rust": {
+        "iterations": 5,
+        "warmup_iterations": 1,
+        "median_ms": 392.566000,
+        "min_ms": 384.668000,
+        "mean_ms": 401.273520,
+        "p95_ms": 428.225800,
+        "throughput_per_sec": 2547.342,
+        "rss_before_bytes": 4706304,
+        "rss_after_bytes": 4657152,
+        "peak_rss_bytes": 5349376,
+        "rss_delta_bytes": 643072
+      },
+      "obspy_baseline": {
+        "median_ms": 168976.129500,
+        "min_ms": 158540.842000,
+        "p95_ms": 172792.880700,
+        "throughput_per_sec": 5.918,
+        "peak_rss_bytes": 184160256,
+        "tracemalloc_peak_bytes": 36624701
+      },
+      "speedup_vs_obspy": 430.4401,
+      "peak_rss_reduction_factor": 34.4265
+    }
+  ]
+}

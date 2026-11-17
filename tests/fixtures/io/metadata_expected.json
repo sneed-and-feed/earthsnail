@@ -1,0 +1,664 @@
+{
+  "schema_version": "1.0",
+  "stationxml": {
+    "file": "iu_anmo_bhz.xml",
+    "sha256": "d862521163af41ffe5e5f3b1a11c692b19d63ee1aaf5f631c579886187973697",
+    "network": "IU",
+    "station": "ANMO",
+    "location": "10",
+    "channel": "BHZ",
+    "latitude": 34.94591,
+    "longitude": -106.4572,
+    "elevation_m": 1730.5,
+    "depth_m": 90.2,
+    "azimuth_deg": 0.0,
+    "dip_deg": -90.0,
+    "sample_rate_hz": 40.0,
+    "overall_sensitivity": 1974680000.0,
+    "sensitivity_frequency_hz": 0.02,
+    "input_units": "m/s",
+    "output_units": "counts",
+    "stages": [
+      {
+        "stage_sequence_number": 1,
+        "stage_type": "PolesZerosResponseStage",
+        "input_units": "m/s",
+        "output_units": "V",
+        "stage_gain": 1177.0,
+        "stage_gain_frequency": 0.02,
+        "decimation_input_sample_rate": 40.0,
+        "decimation_factor": 1,
+        "pz_transfer_function_type": "LAPLACE (RADIANS/SECOND)",
+        "normalization_factor": 8.46585e+17,
+        "normalization_frequency": 0.02,
+        "zeros": [
+          {
+            "real": 0.0,
+            "imag": 0.0,
+            "abs": 0.0,
+            "phase_rad": 0.0
+          },
+          {
+            "real": 0.0,
+            "imag": 0.0,
+            "abs": 0.0,
+            "phase_rad": 0.0
+          },
+          {
+            "real": -31.63,
+            "imag": 0.0,
+            "abs": 31.63,
+            "phase_rad": 3.141592653589793
+          },
+          {
+            "real": -160.0,
+            "imag": 0.0,
+            "abs": 160.0,
+            "phase_rad": 3.141592653589793
+          },
+          {
+            "real": -350.0,
+            "imag": 0.0,
+            "abs": 350.0,
+            "phase_rad": 3.141592653589793
+          },
+          {
+            "real": -3177.0,
+            "imag": 0.0,
+            "abs": 3177.0,
+            "phase_rad": 3.141592653589793
+          }
+        ],
+        "poles": [
+          {
+            "real": -0.0368056,
+            "imag": -0.0362649,
+            "abs": 0.051670060609312236,
+            "phase_rad": -2.3635940581649058
+          },
+          {
+            "real": -0.0368056,
+            "imag": 0.0362649,
+            "abs": 0.051670060609312236,
+            "phase_rad": 2.3635940581649058
+          },
+          {
+            "real": -32.55,
+            "imag": 0.0,
+            "abs": 32.55,
+            "phase_rad": 3.141592653589793
+          },
+          {
+            "real": -142.0,
+            "imag": 0.0,
+            "abs": 142.0,
+            "phase_rad": 3.141592653589793
+          },
+          {
+            "real": -364.0,
+            "imag": -404.0,
+            "abs": 543.7940786731683,
+            "phase_rad": -2.3041581753831286
+          },
+          {
+            "real": -364.0,
+            "imag": 404.0,
+            "abs": 543.7940786731683,
+            "phase_rad": 2.3041581753831286
+          },
+          {
+            "real": -1260.0,
+            "imag": 0.0,
+            "abs": 1260.0,
+            "phase_rad": 3.141592653589793
+          },
+          {
+            "real": -4900.0,
+            "imag": -5200.0,
+            "abs": 7144.9282711585,
+            "phase_rad": -2.3265002505854353
+          },
+          {
+            "real": -4900.0,
+            "imag": 5200.0,
+            "abs": 7144.9282711585,
+            "phase_rad": 2.3265002505854353
+          },
+          {
+            "real": -7100.0,
+            "imag": -1700.0,
+            "abs": 7300.684899377592,
+            "phase_rad": -2.906580437869136
+          },
+          {
+            "real": -7100.0,
+            "imag": 1700.0,
+            "abs": 7300.684899377592,
+            "phase_rad": 2.906580437869136
+          }
+        ]
+      },
+      {
+        "stage_sequence_number": 2,
+        "stage_type": "CoefficientsTypeResponseStage",
+        "input_units": "V",
+        "output_units": "counts",
+        "stage_gain": 1677720.0,
+        "stage_gain_frequency": 0.0,
+        "decimation_input_sample_rate": 40.0,
+        "decimation_factor": 1,
+        "cf_transfer_function_type": "DIGITAL",
+        "numerator_len": 0,
+        "denominator_len": 0,
+        "numerator": [],
+        "denominator": []
+      },
+      {
+        "stage_sequence_number": 3,
+        "stage_type": "CoefficientsTypeResponseStage",
+        "input_units": "counts",
+        "output_units": "counts",
+        "stage_gain": 1.0,
+        "stage_gain_frequency": 0.0,
+        "decimation_input_sample_rate": 40.0,
+        "decimation_factor": 1,
+        "cf_transfer_function_type": "DIGITAL",
+        "numerator_len": 39,
+        "denominator_len": 0,
+        "numerator": [
+          4.18952e-13,
+          0.000330318,
+          0.00102921,
+          -0.00314123,
+          0.000205709,
+          0.00152521,
+          -0.00623193,
+          0.0104801,
+          -0.0131202,
+          0.0107821,
+          -0.00144455,
+          -0.0158729,
+          0.0395074,
+          -0.0651036,
+          0.0853716,
+          -0.0891913,
+          0.0500619,
+          0.837233,
+          0.266723,
+          -0.166693,
+          0.095284,
+          -0.0509218,
+          0.0161458,
+          0.00706362,
+          -0.0183877,
+          0.0199414,
+          -0.0154895,
+          0.00852735,
+          -0.00255789,
+          -0.00181103,
+          0.00242649,
+          -0.00375769,
+          0.000467293,
+          0.000633072,
+          -1.56874e-06,
+          -1.2548e-05,
+          3.21041e-07,
+          -2.63324e-08,
+          -5.09997e-08
+        ],
+        "denominator": []
+      }
+    ],
+    "frequencies_hz": [
+      0.01,
+      0.1,
+      1.0,
+      5.0,
+      15.0
+    ],
+    "evalresp_complex_response": {
+      "DISP": [
+        {
+          "real": -100034173.35848889,
+          "imag": 27624996.669194136,
+          "abs": 103778496.23351264,
+          "phase_rad": 2.8721524128950184
+        },
+        {
+          "real": -149748929.91487566,
+          "imag": 1252439562.9687304,
+          "abs": 1261360218.5339265,
+          "phase_rad": 1.6897971879757405
+        },
+        {
+          "real": -347038842.01145285,
+          "imag": 12706161499.774073,
+          "abs": 12710899890.102415,
+          "phase_rad": 1.5981021804072912
+        },
+        {
+          "real": -4004889174.3313513,
+          "imag": 64865434443.42578,
+          "abs": 64988950774.982086,
+          "phase_rad": 1.6324595519045106
+        },
+        {
+          "real": -22530534137.632717,
+          "imag": 193178204959.41193,
+          "abs": 194487644440.1227,
+          "phase_rad": 1.6869025968395464
+        }
+      ],
+      "VEL": [
+        {
+          "real": 439665477.27993906,
+          "imag": 1592093316.8115091,
+          "abs": 1651686066.2207177,
+          "phase_rad": 1.3013560861001217
+        },
+        {
+          "real": 1993319473.7032657,
+          "imag": 238332824.18674257,
+          "abs": 2007517137.9914775,
+          "phase_rad": 0.11900086118084399
+        },
+        {
+          "real": 2022248410.412974,
+          "imag": 55232947.15101004,
+          "abs": 2023002548.6560285,
+          "phase_rad": 0.02730585361239462
+        },
+        {
+          "real": 2064730905.4948997,
+          "imag": 127479581.72601078,
+          "abs": 2068662552.4388523,
+          "phase_rad": 0.06166322510961406
+        },
+        {
+          "real": 2049684414.4606469,
+          "imag": 239056391.90032938,
+          "abs": 2063577998.8629673,
+          "phase_rad": 0.11610627004464968
+        }
+      ],
+      "ACC": [
+        {
+          "real": 25338952123.412262,
+          "imag": -6997493401.59597,
+          "abs": 26287400187.50348,
+          "phase_rad": -0.2694402406947749
+        },
+        {
+          "real": 379318470.7037172,
+          "imag": -3172466474.0121,
+          "abs": 3195062758.530382,
+          "phase_rad": -1.4517954656140526
+        },
+        {
+          "real": 8790596.560616665,
+          "imag": -321850830.6769527,
+          "abs": 321970855.5061095,
+          "phase_rad": -1.543490473182502
+        },
+        {
+          "real": 4057801.1149963737,
+          "imag": -65722425.95282366,
+          "abs": 65847574.1619481,
+          "phase_rad": -1.5091331016852825
+        },
+        {
+          "real": 2536467.096576717,
+          "imag": -21747827.08932194,
+          "abs": 21895242.59831486,
+          "phase_rad": -1.454690056750247
+        }
+      ]
+    }
+  },
+  "sacpz": {
+    "file": "iu_anmo_bhz.sacpz",
+    "sha256": "2ea6a26c43544fe80a940db904bccc6c89e9b5a2afe919d456cd9937888da72a",
+    "input_unit": "M",
+    "output_unit": "COUNTS",
+    "constant": 1.671734e+27,
+    "a0": 8.46585e+17,
+    "sensitivity": 1974680000.0,
+    "zeros_disp_rad_s": [
+      {
+        "real": 0.0,
+        "imag": 0.0,
+        "abs": 0.0,
+        "phase_rad": 0.0
+      },
+      {
+        "real": 0.0,
+        "imag": 0.0,
+        "abs": 0.0,
+        "phase_rad": 0.0
+      },
+      {
+        "real": -31.63,
+        "imag": 0.0,
+        "abs": 31.63,
+        "phase_rad": 3.141592653589793
+      },
+      {
+        "real": -160.0,
+        "imag": 0.0,
+        "abs": 160.0,
+        "phase_rad": 3.141592653589793
+      },
+      {
+        "real": -350.0,
+        "imag": 0.0,
+        "abs": 350.0,
+        "phase_rad": 3.141592653589793
+      },
+      {
+        "real": -3177.0,
+        "imag": 0.0,
+        "abs": 3177.0,
+        "phase_rad": 3.141592653589793
+      },
+      {
+        "real": 0.0,
+        "imag": 0.0,
+        "abs": 0.0,
+        "phase_rad": 0.0
+      }
+    ],
+    "poles_rad_s": [
+      {
+        "real": -0.0368056,
+        "imag": -0.0362649,
+        "abs": 0.051670060609312236,
+        "phase_rad": -2.3635940581649058
+      },
+      {
+        "real": -0.0368056,
+        "imag": 0.0362649,
+        "abs": 0.051670060609312236,
+        "phase_rad": 2.3635940581649058
+      },
+      {
+        "real": -32.55,
+        "imag": 0.0,
+        "abs": 32.55,
+        "phase_rad": 3.141592653589793
+      },
+      {
+        "real": -142.0,
+        "imag": 0.0,
+        "abs": 142.0,
+        "phase_rad": 3.141592653589793
+      },
+      {
+        "real": -364.0,
+        "imag": -404.0,
+        "abs": 543.7940786731683,
+        "phase_rad": -2.3041581753831286
+      },
+      {
+        "real": -364.0,
+        "imag": 404.0,
+        "abs": 543.7940786731683,
+        "phase_rad": 2.3041581753831286
+      },
+      {
+        "real": -1260.0,
+        "imag": 0.0,
+        "abs": 1260.0,
+        "phase_rad": 3.141592653589793
+      },
+      {
+        "real": -4900.0,
+        "imag": -5200.0,
+        "abs": 7144.9282711585,
+        "phase_rad": -2.3265002505854353
+      },
+      {
+        "real": -4900.0,
+        "imag": 5200.0,
+        "abs": 7144.9282711585,
+        "phase_rad": 2.3265002505854353
+      },
+      {
+        "real": -7100.0,
+        "imag": -1700.0,
+        "abs": 7300.684899377592,
+        "phase_rad": -2.906580437869136
+      },
+      {
+        "real": -7100.0,
+        "imag": 1700.0,
+        "abs": 7300.684899377592,
+        "phase_rad": 2.906580437869136
+      }
+    ],
+    "frequencies_hz": [
+      0.01,
+      0.1,
+      1.0,
+      5.0,
+      15.0
+    ],
+    "complex_response": {
+      "DISP": [
+        {
+          "real": -100029076.41155125,
+          "imag": 27643690.166616444,
+          "abs": 103778561.0508059,
+          "phase_rad": 2.871965709562771
+        },
+        {
+          "real": -147397505.4393911,
+          "imag": 1252606637.6332443,
+          "abs": 1261249147.9690351,
+          "phase_rad": 1.6879302839461257
+        },
+        {
+          "real": -110428203.0874936,
+          "imag": 12626226840.56692,
+          "abs": 12626709730.467777,
+          "phase_rad": 1.5795420422811606
+        },
+        {
+          "real": 1567987129.556329,
+          "imag": 63883880079.80607,
+          "abs": 63903119780.567024,
+          "phase_rad": 1.546256922223825
+        },
+        {
+          "real": 20198569957.067474,
+          "imag": 193395729776.10892,
+          "abs": 194447654971.574,
+          "phase_rad": 1.466731958173641
+        }
+      ],
+      "VEL": [
+        {
+          "real": 439962993.5317825,
+          "imag": 1592012196.3815286,
+          "abs": 1651687097.8199794,
+          "phase_rad": 1.3011693827678745
+        },
+        {
+          "real": 1993585381.2904935,
+          "imag": 234590415.90093625,
+          "abs": 2007340363.6971326,
+          "phase_rad": 0.11713395715122908
+        },
+        {
+          "real": 2009526414.2757893,
+          "imag": 17575194.378130317,
+          "abs": 2009603268.5904799,
+          "phase_rad": 0.008745715486263883
+        },
+        {
+          "real": 2033487059.7182002,
+          "imag": -49910580.474672064,
+          "abs": 2034099478.4141433,
+          "phase_rad": -0.024539404571071472
+        },
+        {
+          "real": 2051992424.4488125,
+          "imag": -214313483.4703162,
+          "abs": 2063153697.4235575,
+          "phase_rad": -0.10406436862125547
+        }
+      ],
+      "ACC": [
+        {
+          "real": 25337661051.670555,
+          "imag": -7002228519.809077,
+          "abs": 26287416605.915665,
+          "phase_rad": -0.26962694402702203
+        },
+        {
+          "real": 373362242.9261757,
+          "imag": -3172889679.0812297,
+          "abs": 3194781413.5028167,
+          "phase_rad": -1.4536623696436675
+        },
+        {
+          "real": 2797179.061080321,
+          "imag": -319826062.1057238,
+          "abs": 319838293.84980476,
+          "phase_rad": -1.5620506113086328
+        },
+        {
+          "real": -1588703.1190259908,
+          "imag": -64727903.45351115,
+          "abs": 64747397.346051395,
+          "phase_rad": -1.5953357313659682
+        },
+        {
+          "real": -2273936.6843696036,
+          "imag": -21772315.83587674,
+          "abs": 21890740.620218653,
+          "phase_rad": -1.6748606954161522
+        }
+      ]
+    }
+  },
+  "quakeml": {
+    "file": "events.qml",
+    "sha256": "38ff2fdebd0aad0edff4007d5d284a954a8c36c2e3d39929ed0567e2d932fce7",
+    "num_events": 4,
+    "events": [
+      {
+        "resource_id": "quakeml:eu.emsc/event/20120404_0000041",
+        "num_origins": 1,
+        "num_magnitudes": 1,
+        "num_picks": 0,
+        "num_focal_mechanisms": 0,
+        "preferred_origin": {
+          "time": "2012-04-04T14:21:42.300000Z",
+          "latitude": 41.818,
+          "longitude": 79.689,
+          "depth_m": 1000.0
+        },
+        "preferred_magnitude": {
+          "mag": 4.4,
+          "magnitude_type": "mb"
+        },
+        "picks": [],
+        "focal_mechanisms": []
+      },
+      {
+        "resource_id": "quakeml:eu.emsc/event/20120404_0000038",
+        "num_origins": 1,
+        "num_magnitudes": 1,
+        "num_picks": 0,
+        "num_focal_mechanisms": 0,
+        "preferred_origin": {
+          "time": "2012-04-04T14:18:37Z",
+          "latitude": 39.342,
+          "longitude": 41.044,
+          "depth_m": 14400.0
+        },
+        "preferred_magnitude": {
+          "mag": 4.3,
+          "magnitude_type": "ML"
+        },
+        "picks": [],
+        "focal_mechanisms": []
+      },
+      {
+        "resource_id": "quakeml:eu.emsc/event/20120404_0000039",
+        "num_origins": 1,
+        "num_magnitudes": 1,
+        "num_picks": 0,
+        "num_focal_mechanisms": 0,
+        "preferred_origin": {
+          "time": "2012-04-04T14:08:46Z",
+          "latitude": 38.017,
+          "longitude": 37.736,
+          "depth_m": 7000.0
+        },
+        "preferred_magnitude": {
+          "mag": 3.0,
+          "magnitude_type": "ML"
+        },
+        "picks": [],
+        "focal_mechanisms": []
+      },
+      {
+        "resource_id": "smi:ISC/evid=11713537",
+        "num_origins": 0,
+        "num_magnitudes": 0,
+        "num_picks": 0,
+        "num_focal_mechanisms": 2,
+        "preferred_origin": null,
+        "preferred_magnitude": null,
+        "picks": [],
+        "focal_mechanisms": [
+          {
+            "resource_id": "smi:ISC/fmid=292309",
+            "nodal_plane_1": {
+              "strike": 346.0,
+              "dip": 57.0,
+              "rake": 75.0
+            },
+            "nodal_plane_2": {
+              "strike": 193.0,
+              "dip": 36.0,
+              "rake": 112.0
+            },
+            "moment_tensor": {
+              "scalar_moment_nm": 1.1e+18,
+              "m_rr": 9.3e+17,
+              "m_tt": 1.7e+17,
+              "m_pp": -1.1e+18,
+              "m_rt": -2.2e+17,
+              "m_rp": 4e+17,
+              "m_tp": 3e+16
+            }
+          },
+          {
+            "resource_id": "smi:ISC/fmid=292310",
+            "nodal_plane_1": {
+              "strike": 200.0,
+              "dip": 48.0,
+              "rake": 123.0
+            },
+            "nodal_plane_2": {
+              "strike": 336.0,
+              "dip": 52.0,
+              "rake": 59.0
+            },
+            "moment_tensor": {
+              "scalar_moment_nm": 1.1e+18,
+              "m_rr": 9.1e+17,
+              "m_tt": 2.9e+17,
+              "m_pp": -1.21e+18,
+              "m_rt": -3.4e+17,
+              "m_rp": 6e+16,
+              "m_tp": 6e+16
+            }
+          }
+        ]
+      }
+    ]
+  }
+}

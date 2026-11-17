@@ -1,0 +1,19 @@
+[package]
+name = "earthsnail-bench"
+version = "0.1.0"
+edition = "2021"
+publish = false
+
+[dependencies]
+earthsnail-core = { path = "../../crates/earthsnail-core" }
+earthsnail-io = { path = "../../crates/earthsnail-io" }
+earthsnail-dsp = { path = "../../crates/earthsnail-dsp" }
+earthsnail-taup = { path = "../../crates/earthsnail-taup" }
+earthsnail-sac = { path = "../../crates/earthsnail-sac" }
+
+[profile.release]
+opt-level = 3
+lto = "thin"
+codegen-units = 1
+
+[workspace]

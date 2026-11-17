@@ -1,0 +1,110 @@
+{
+  "gate": "Gate 5 — Native x86_64 vs WASM32 (+simd128) Cross-ISA Lockstep Verification",
+  "overall_status": "PASS",
+  "node_version": "v24.13.0",
+  "host_platform": "win32-x64",
+  "wasm_compile_ms": 2.6746,
+  "wasm_binary": {
+    "wasm_size_bytes": 916732,
+    "sha256": "cb455f06abca4580972565e401b880201e736e96b2d217fd332a1f9322dad111",
+    "simd128_enabled": true,
+    "v128_opcode_bytes": 4249,
+    "import_count": 0,
+    "imports": [],
+    "export_count": 36,
+    "exports": [
+      "memory",
+      "es_abi_version",
+      "es_alloc",
+      "es_clear_error",
+      "es_decode_steim2_frames",
+      "es_decode_waveforms",
+      "es_demean_detrend_taper",
+      "es_encode_mseed2_steim2",
+      "es_encode_mseed3",
+      "es_encode_sac",
+      "es_encode_steim2_frames",
+      "es_flinn_polarization",
+      "es_free",
+      "es_hilbert_envelope",
+      "es_last_error_len",
+      "es_last_error_ptr",
+      "es_locate_hypocenter",
+      "es_moment_tensor_decompose",
+      "es_nlnm_nhnm",
+      "es_parse_sacpz",
+      "es_parse_stationxml_eval_response",
+      "es_pick_arrivals",
+      "es_remove_response",
+      "es_response_spectrum",
+      "es_rfft_psd",
+      "es_rotate_3c",
+      "es_sos_filter",
+      "es_stft_spectrogram",
+      "es_taup_engine_create",
+      "es_taup_engine_free",
+      "es_taup_pierce_points",
+      "es_taup_ray_paths",
+      "es_taup_travel_times",
+      "es_wgs84_geodesic",
+      "__data_end",
+      "__heap_base"
+    ]
+  },
+  "checks": {
+    "steim2_codec": {
+      "status": "PASS",
+      "samples": 512,
+      "frames_bytes": 1152,
+      "frames_sha256_match": true,
+      "max_int32_ulp_diff": 0,
+      "wasm_elapsed_ms": 7.4223
+    },
+    "wgs84_geodesics": {
+      "status": "PASS",
+      "pairs": 6,
+      "count": 30,
+      "max_abs_diff": 0,
+      "max_rel_diff": 0,
+      "wasm_elapsed_ms": 1.2441
+    },
+    "butterworth_zerophase": {
+      "status": "PASS",
+      "obspy_2pass_max_abs_diff": 0,
+      "sosfiltfilt_max_abs_diff": 0,
+      "wasm_elapsed_ms": 2.4576
+    },
+    "fft_psd_envelope_noise": {
+      "status": "PASS",
+      "psd_max_abs_diff": 0,
+      "envelope_max_abs_diff": 0,
+      "nlnm_max_abs_diff": 0,
+      "nhnm_max_abs_diff": 0,
+      "wasm_elapsed_ms": 1.3619
+    },
+    "morse_and_baer_pickers": {
+      "status": "PASS",
+      "sta_lta_glitched_pick": 280,
+      "morse_glitched_pick": 640,
+      "morse_peak_ratio_diff": 0,
+      "morse_cf_max_abs_diff": 0,
+      "baer_clean_pick": 641,
+      "baer_cf_max_abs_diff": 0,
+      "wasm_elapsed_ms": 1.669
+    },
+    "taup_iasp91_ak135_prem": {
+      "status": "PASS",
+      "models": [
+        "iasp91",
+        "ak135",
+        "prem"
+      ],
+      "arrivals_verified": 26,
+      "ray_path_points_verified": 10768,
+      "max_travel_time_diff_s": 0,
+      "max_ray_param_diff_s_per_deg": 0,
+      "max_ray_path_coord_diff": 0,
+      "wasm_elapsed_ms": 260.1739
+    }
+  }
+}

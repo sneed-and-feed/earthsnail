@@ -1,0 +1,18 @@
+[package]
+name = "earthsnail-io"
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+license.workspace = true
+repository.workspace = true
+description = "Pure-Rust waveform, metadata, and network I/O (SAC, miniSEED v2/v3, GeoCSV, SACPZ, StationXML, QuakeML, FDSNWS, SeedLink v4)."
+
+[features]
+default = ["std"]
+std = ["earthsnail-core/std"]
+
+[dependencies]
+earthsnail-core = { path = "../earthsnail-core", default-features = false }
+
+[dev-dependencies]
+proptest.workspace = true

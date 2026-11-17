@@ -1,0 +1,27 @@
+[build-system]
+requires = ["setuptools>=64"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "earthsnail"
+version = "0.1.0"
+description = "Zero-bloat Python ctypes bindings for the EarthSnail 100% Rust seismological engine (SAC, miniSEED v2/v3, StationXML, DSP, Morse picker, WGS84 geodesics, TauP)."
+readme = "README.md"
+requires-python = ">=3.9"
+license = { text = "CC0-1.0" }
+dependencies = []
+keywords = ["seismology", "geophysics", "sac", "mseed", "taup", "obspy", "rust"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Science/Research",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Rust",
+    "Topic :: Scientific/Engineering :: Physics",
+]
+
+[tool.setuptools]
+package-dir = { "" = "python" }
+
+[tool.setuptools.packages.find]
+where = ["python"]
+include = ["earthsnail*"]

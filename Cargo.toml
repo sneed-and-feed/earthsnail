@@ -1,0 +1,29 @@
+[workspace]
+resolver = "2"
+members = [
+    "crates/earthsnail-core",
+    "crates/earthsnail-io",
+    "crates/earthsnail-dsp",
+    "crates/earthsnail-taup",
+    "crates/earthsnail-sac",
+    "crates/earthsnail-wasm",
+]
+
+[workspace.package]
+version = "0.1.0"
+edition = "2021"
+rust-version = "1.85"
+license = "CC0-1.0"
+repository = "https://github.com/sneed-and-feed/earthsnail"
+
+[workspace.dependencies]
+proptest = "1.5"
+
+[profile.release]
+opt-level = 3
+lto = "thin"
+codegen-units = 1
+
+[profile.bench]
+opt-level = 3
+lto = "thin"

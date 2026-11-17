@@ -1,0 +1,118 @@
+name: EarthSnail 5-Gate CI, Miri & Cross-ISA Verification
+
+on:
+  push:
+    branches: [ main, master ]
+    tags: [ 'v*' ]
+  pull_request:
+    branches: [ main, master ]
+  workflow_dispatch:
+
+env:
+  CARGO_TERM_COLOR: always
+  PYTHONUTF8: '1'
+  PYTHONIOENCODING: 'utf-8'
+
+jobs:
+  rust-and-bindings:
+    name: Build, Clippy, Release Tests, WASM32 & Python FFI (${{ matrix.os }})
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ ubuntu-latest, windows-latest, macos-latest ]
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Set up Rust Stable Toolchain (+ wasm32-unknown-unknown)
+        uses: dtolnay/rust-toolchain@stable
+        with:
+          components: clippy, rustfmt
+          targets: wasm32-unknown-unknown
+
+      - name: Set up Python 3.12
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Set up Node.js 22 (WASM32 Lockstep & Portable Studio Audit)
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Cache Cargo Registry and Target Artifacts
+        uses: actions/cache@v4
+        with:
+          path: |
+            ~/.cargo/registry/index/
+            ~/.cargo/registry/cache/
+            ~/.cargo/git/db/
+            target/
+          key: ${{ runner.os }}-cargo-${{ hashFiles('**/Cargo.toml', 'Cargo.lock') }}
+
+      - name: Zero-Dependency & Zero-Sys Tree Audit
+        shell: bash
+        run: |
+          cargo tree --workspace -e normal
+          if cargo tree --workspace -e normal | grep -E '(-sys|openssl|fftw|libmseed|libxml)'; then
+            echo "Forbidden external C/Fortran -sys dependency detected!"
+            exit 1
+          fi
+
+      - name: Clippy Lint (Workspace All-Targets + Strict no_std Crates)
+        run: |
+          cargo clippy --workspace --all-targets -- -D warnings
+          cargo clippy -p earthsnail-core --no-default-features -- -D warnings
+          cargo clippy -p earthsnail-io --no-default-features -- -D warnings
+          cargo clippy -p earthsnail-dsp --no-default-features -- -D warnings
+          cargo clippy -p earthsnail-taup --no-default-features -- -D warnings
+
+      - name: Check & Build WASM32 (+simd128) Target
+        run: |
+          cargo check --workspace --target wasm32-unknown-unknown
+          cargo build -p earthsnail-wasm --target wasm32-unknown-unknown --release
+
+      - name: Run Full Workspace Release Test Suite (Gates 1, 3, 4)
+        run: cargo test --workspace --release
+
+      - name: Run Strict no_std Unit Tests
+        run: |
+          cargo test -p earthsnail-core --lib --no-default-features
+          cargo test -p earthsnail-io --lib --no-default-features
+          cargo test -p earthsnail-dsp --lib --no-default-features
+          cargo test -p earthsnail-taup --lib --no-default-features
+
+      - name: Build Native Release Binaries & C-ABI Shared Library
+        run: |
+          cargo build --workspace --release
+          cargo run -p earthsnail-sac --bin earthsnail --release -- verify --json
+
+      - name: Verify Zero-Dependency Python ctypes Bindings
+        env:
+          PYTHONPATH: python
+        run: |
+          python -B -m earthsnail.selftest
+          python -B -m unittest discover -s python -v
+
+      - name: Audit Self-Contained Portable WebGL2 + WASM32 Studio
+        run: node studio/audit_studio_html.mjs
+
+  miri-soundness:
+    name: Gate 2 — Cargo Miri Memory & Stacked/Tree Borrows Audit
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Set up Rust Nightly with Miri
+        uses: dtolnay/rust-toolchain@nightly
+        with:
+          components: miri, rust-src
+
+      - name: Run Miri Across All 6 Workspace Crates (0 UB, 0 Leaks)
+        run: |
+          cargo +nightly miri setup
+          cargo +nightly miri test --workspace --lib
+          cargo +nightly miri test -p earthsnail-core --lib --no-default-features

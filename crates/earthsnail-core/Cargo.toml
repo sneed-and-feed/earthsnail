@@ -1,0 +1,15 @@
+[package]
+name = "earthsnail-core"
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+license.workspace = true
+repository.workspace = true
+description = "Zero-dependency core seismological types, 158-word SAC headers, WGS84 geodesics, responses, catalogs, and SVG primitives."
+
+[features]
+default = ["std"]
+std = []
+
+[dev-dependencies]
+proptest.workspace = true

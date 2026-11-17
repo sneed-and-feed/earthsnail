@@ -1,0 +1,20 @@
+cff-version: 1.2.0
+title: "EarthSnail: Zero-Bloat Pure-Rust Seismological Engine Unifying SAC, TauP, and ObsPy"
+message: "If you use this software, please cite it using the metadata from this file."
+type: software
+authors:
+  - family-names: "Cohen"
+    given-names: "Noah"
+version: 0.1.0
+date-released: 2026-11-16
+license: CC0-1.0
+repository-code: "https://github.com/sneed-and-feed/earthsnail"
+keywords:
+  - seismology
+  - geophysics
+  - sac
+  - taup
+  - obspy
+  - miniseed
+  - rust
+  - webassembly

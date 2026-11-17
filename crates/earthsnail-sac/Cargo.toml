@@ -1,0 +1,30 @@
+[package]
+name = "earthsnail-sac"
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+license.workspace = true
+repository.workspace = true
+description = "EarthSnail structured CLI, interactive SAC> REPL, .m macro engine, and publication SVG plotting."
+default-run = "earthsnail"
+
+[lib]
+name = "earthsnail_sac"
+path = "src/lib.rs"
+
+[[bin]]
+name = "earthsnail"
+path = "src/main.rs"
+
+[[bin]]
+name = "es-sac"
+path = "src/bin/es_sac.rs"
+
+[dependencies]
+earthsnail-core = { path = "../earthsnail-core" }
+earthsnail-io = { path = "../earthsnail-io" }
+earthsnail-dsp = { path = "../earthsnail-dsp" }
+earthsnail-taup = { path = "../earthsnail-taup" }
+
+[dev-dependencies]
+proptest = { workspace = true }

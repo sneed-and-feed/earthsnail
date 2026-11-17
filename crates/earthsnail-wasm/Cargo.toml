@@ -1,0 +1,17 @@
+[package]
+name = "earthsnail-wasm"
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+license.workspace = true
+repository.workspace = true
+description = "Miri-verified C-ABI and WebAssembly (+simd128) interface for EarthSnail Studio and Python bindings."
+
+[lib]
+crate-type = ["cdylib", "rlib"]
+
+[dependencies]
+earthsnail-core = { path = "../earthsnail-core", default-features = false }
+earthsnail-io = { path = "../earthsnail-io", default-features = false }
+earthsnail-dsp = { path = "../earthsnail-dsp", default-features = false }
+earthsnail-taup = { path = "../earthsnail-taup", default-features = false }

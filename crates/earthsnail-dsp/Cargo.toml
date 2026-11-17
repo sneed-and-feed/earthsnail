@@ -1,0 +1,18 @@
+[package]
+name = "earthsnail-dsp"
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+license.workspace = true
+repository.workspace = true
+description = "Pure-Rust seismological signal processing, FFT, SOS filters, deconvolution, PPSD, pickers, 3C polarization, f-k, and RF."
+
+[features]
+default = ["std"]
+std = ["earthsnail-core/std"]
+
+[dependencies]
+earthsnail-core = { path = "../earthsnail-core", default-features = false }
+
+[dev-dependencies]
+proptest.workspace = true

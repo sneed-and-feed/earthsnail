@@ -1,0 +1,26 @@
+# Rust / Cargo build artifacts and isolated worker target caches
+/target/
+/target_workers/
+**/target/
+
+# Python / Oracle staging virtual environments & caches
+.venv/
+venv/
+ENV/
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+.pytest_cache/
+.ruff_cache/
+dist/
+build/
+
+# Proptest regressions (temporary local failures)
+proptest-regressions/
+
+# OS / Editor files
+.DS_Store
+Thumbs.db
+*.swp
+*~
